@@ -1,0 +1,40 @@
+<!-- <h1>All words:</h1>
+<% @words.each do |word| %>
+  	<div class="well">
+	  	<h2><%=	word.definition %> - <%= word.translation %></h2>
+		<%= link_to "Edit", edit_word_path(word), :class => 'btn btn-default' %>
+		<%= link_to "Delete", word_path(word), 
+				method: :delete,
+				data: {confirm: "Are you sure?"},
+				:class => 'btn btn-danger' %>
+	</div>
+<% end %> -->
+
+<div class="container">
+  <h1>All words:</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Definition</th>
+        <th>Translation</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @words.each do |word| %>
+      <tr>
+      	
+  		<td><%= word.definition %></td>
+  		<td><%= word.translation %></td>
+  		<td>
+  			<%= link_to "Edit", edit_word_path(word), :class => 'btn btn-default' %>
+			<%= link_to "Delete", word_path(word), 
+				method: :delete,
+				data: {confirm: "Are you sure?"},
+				:class => 'btn btn-danger' %>
+  		</td>
+      </tr>
+	  <% end %>
+    </tbody>
+  </table>
+</div>
