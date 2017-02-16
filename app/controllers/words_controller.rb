@@ -2,7 +2,7 @@ class WordsController < ApplicationController
   http_basic_authenticate_with name:"user", password: "pass"
   before_action :find_word, only: [:show, :edit, :update, :destroy]
   def index
-  	@words = Word.all
+  	@words = Word.all.order("created_at")
   end
 
   def new
